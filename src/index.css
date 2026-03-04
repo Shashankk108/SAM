@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-slate-800;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---- Guided Tour Animations ---- */
+
+@keyframes tourFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tourScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes tourPulseRing {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes tourPulseRingOuter {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes tourTooltipEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tour-fade-in {
+  animation: tourFadeIn 0.3s ease-out both;
+}
+
+.tour-scale-in {
+  animation: tourScaleIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.tour-pulse-ring {
+  animation: tourPulseRing 2.2s ease-in-out infinite;
+}
+
+.tour-pulse-ring-outer {
+  animation: tourPulseRingOuter 2.2s ease-in-out infinite 0.3s;
+}
+
+.tour-tooltip-enter {
+  animation: tourTooltipEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.tour-spotlight {
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
